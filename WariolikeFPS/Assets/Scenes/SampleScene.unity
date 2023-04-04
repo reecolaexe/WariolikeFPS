@@ -1534,7 +1534,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23830
+  m_Name: pb_Mesh35592
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1810,6 +1810,8 @@ MonoBehaviour:
   moveSmoothTime: 0.1
   jumpHeight: 4
   gravityStrength: 9.81
+  chargeSpeed: 0
+  chargeDuration: 0
 --- !u!143 &1544087541
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1841,4 +1843,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 963194228}
-  mouseSensitivity: {x: 2, y: 2}
+  mouseSensitivity: {x: 1.5, y: 1.5}
