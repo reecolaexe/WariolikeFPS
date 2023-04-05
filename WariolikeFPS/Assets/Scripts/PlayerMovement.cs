@@ -26,10 +26,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Horizontal and Vertical Movement
-        Vector3 playerInput = new Vector3{x = Input.GetAxisRaw("Horizontal"), y = 0f, z = Input.GetAxisRaw("Vertical")};
+        groundMovement();
+        airMovement();
+    }
 
-        if(playerInput.magnitude > 1f)
+    void groundMovement()
+    {
+        Vector3 playerInput = new Vector3 { x = Input.GetAxisRaw("Horizontal"), y = 0f, z = Input.GetAxisRaw("Vertical") };
+
+        if (playerInput.magnitude > 1f)
         {
             playerInput.Normalize();
         }
@@ -37,13 +42,15 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveVector = transform.TransformDirection(playerInput);
         currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, moveVector * moveSpeed, ref moveDampVelocity, moveSmoothTime);
         cc.Move(currentMoveVelocity * Time.deltaTime);
+    }
 
-        //Jumping and Gravity
+    void airMovement()
+    {
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if(Physics.Raycast(groundCheckRay, 1.25f))
+        if (Physics.Raycast(groundCheckRay, 1.25f))
         {
             currentForceVelocity.y = -2f;
-            if(Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 currentForceVelocity.y = jumpHeight;
             }
@@ -53,9 +60,5 @@ public class PlayerMovement : MonoBehaviour
             currentForceVelocity.y -= gravityStrength * Time.deltaTime;
         }
         cc.Move(currentForceVelocity * Time.deltaTime);
-
-        //Charging
-        //Setup a simulated transform.foward movement based on the charge speed and have it last the duration or until the player collides with a wall/enemy. Disable using weapons and the camera during this
-
     }
 }
