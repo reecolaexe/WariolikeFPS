@@ -22,6 +22,8 @@ public class Fists : MonoBehaviour
     bool readyToAttack = true;
     int attackCount;
 
+    bool unlocked;
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0))

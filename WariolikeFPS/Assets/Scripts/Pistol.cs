@@ -15,11 +15,13 @@ public class Pistol : MonoBehaviour
 
     public GameObject muzzleFlash;
     public AudioClip emptySound;
-    public AudioClip hitSound;
+    public AudioClip fireSound;
 
     bool attacking = false;
     bool readyToAttack = true;
     int attackCount;
+
+    bool unlocked;
 
     void Update()
     {
