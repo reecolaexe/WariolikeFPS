@@ -61,4 +61,9 @@ public class PlayerMovement : MonoBehaviour
         }
         cc.Move(currentForceVelocity * Time.deltaTime);
     }
+
+    void charging()
+    {
+
+    }
 }
