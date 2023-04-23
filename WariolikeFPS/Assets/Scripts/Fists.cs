@@ -53,6 +53,11 @@ public class Fists : MonoBehaviour
         if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
         {
             hitTarget(hit.point);
+            Target target = hit.transform.GetComponent<Target>();
+            if(target != null)
+            {
+                target.takeDamage(1);
+            }
         }
     }
 
@@ -60,5 +65,6 @@ public class Fists : MonoBehaviour
     {
         GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
         Destroy(GO, 20);
+     
     }
 }

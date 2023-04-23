@@ -5,65 +5,33 @@ using UnityEngine;
 public class Pistol : MonoBehaviour
 {
     [Header("Variables")]
-    public float attackSpeed;
-    public float ammo;
-    public int attackDamage;
+    public float damage;
+    public float range;
+    public float firerate;
 
-    public LayerMask attackLayer;
     public Camera playerCamera;
-    public AudioSource audioSource;
 
-    public GameObject muzzleFlash;
-    public AudioClip emptySound;
-    public AudioClip fireSound;
-
-    bool attacking = false;
-    bool readyToAttack = true;
-    int attackCount;
-
-    bool unlocked;
+    private float nextTimeToFire = 0f;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            attack();
+            nextTimeToFire = Time.time + 1f / firerate;
+            shoot();
         }
     }
 
-    void attack()
+    void shoot()
     {
-        if (!readyToAttack || attacking) return;
-        readyToAttack = false;
-        attacking = true;
-        Invoke(nameof(resetAttack), attackSpeed);
-        if(ammo > 0)
+        RaycastHit hit;
+        if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
         {
-            attackRaycast();
+            Target target = hit.transform.GetComponent<Target>();
+            if(target != null)
+            {
+                target.takeDamage(damage);
+            }
         }
-        else
-        {
-            audioSource.PlayOneShot(emptySound);
-        }
-
-    }
-
-    void resetAttack()
-    {
-        readyToAttack = true;
-        attacking = false;
-    }
-
-    void attackRaycast()
-    {
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, attackLayer))
-        {
-            hitTarget(hit.point);
-        }
-    }
-
-    void hitTarget(Vector3 pos)
-    {
-        
     }
 }

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Charging")]
     public float chargeSpeed;
     public float chargeDuration;
+    public bool cameraLocked;
 
     private CharacterController cc;
     private Vector3 currentMoveVelocity;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
+        cameraLocked = false;
     }
 
     void Update()
@@ -62,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
         cc.Move(currentForceVelocity * Time.deltaTime);
     }
 
-    void charging()
+    void charging() 
     {
-
+        //Add force to transform.forward to apply constant speed.
     }
 }
