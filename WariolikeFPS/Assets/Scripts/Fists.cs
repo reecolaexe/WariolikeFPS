@@ -5,66 +5,34 @@ using UnityEngine;
 public class Fists : MonoBehaviour
 {
     [Header("Variables")]
-    public float attackDistance = 3f;
-    public float attackDelay = 0.4f;
-    public float attackSpeed = 1f;
-    public int attackDamage;
+    public float damage;
+    public float delay;
+    public float range;
+    public float firerate;
 
-    public LayerMask attackLayer;
     public Camera playerCamera;
-    public AudioSource audioSource;
 
-    public GameObject hitEffect;
-    public AudioClip swingSound;
-    public AudioClip hitSound;
-
-    bool attacking = false;
-    bool readyToAttack = true;
-    int attackCount;
-
-    bool unlocked;
+    private float nextTimeToFire = 0f;
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            attack();
+            nextTimeToFire = Time.time + 1f / firerate;
+            Invoke(nameof(shoot), delay);
         }
     }
 
-    void attack()
+    void shoot()
     {
-        if (!readyToAttack || attacking) return;
-        readyToAttack = false;
-        attacking = true;
-        Invoke(nameof(resetAttack), attackSpeed);
-        Invoke(nameof(attackRaycast), attackDelay);
-
-    }
-
-    void resetAttack()
-    {
-        readyToAttack = true;
-        attacking = false;
-    }
-
-    void attackRaycast()
-    {
-        if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
         {
-            hitTarget(hit.point);
             Target target = hit.transform.GetComponent<Target>();
-            if(target != null)
+            if (target != null)
             {
-                target.takeDamage(1);
+                target.takeDamage(damage);
             }
         }
-    }
-
-    void hitTarget(Vector3 pos)
-    {
-        GameObject GO = Instantiate(hitEffect, pos, Quaternion.identity);
-        Destroy(GO, 20);
-     
     }
 }
