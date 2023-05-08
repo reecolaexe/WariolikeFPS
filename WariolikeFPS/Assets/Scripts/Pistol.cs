@@ -9,12 +9,21 @@ public class Pistol : MonoBehaviour
     public float delay;
     public float range;
     public float firerate;
+
     public float bulletSpeed = 100;
+    public Transform bulletSpawnPoint;
 
     public Camera playerCamera;
     public TrailRenderer bulletTrail;
 
     private float nextTimeToFire = 0f;
+
+    public Recoil recoilScript;
+
+    void Start()
+    {
+        recoilScript = GameObject.Find("CameraRot/CameraRecoil").GetComponent<Recoil>();
+    }
 
     void Update()
     {
@@ -28,9 +37,10 @@ public class Pistol : MonoBehaviour
     void shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+        Vector3 direction = transform.forward;
+        if (Physics.Raycast(bulletSpawnPoint.position, direction, out hit, range))
         {
-            TrailRenderer trail = Instantiate(bulletTrail, playerCamera.transform.forward, Quaternion.identity);
+            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
             StartCoroutine(spawnTrail(trail, hit.point, hit.normal, true));
 
             Target target = hit.transform.GetComponent<Target>();
@@ -41,10 +51,12 @@ public class Pistol : MonoBehaviour
         }
         else
         {
-            TrailRenderer trail = Instantiate(bulletTrail, playerCamera.transform.position, Quaternion.identity);
+            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
 
-            StartCoroutine(spawnTrail(trail, hit.point, Vector3.zero, false));
+            StartCoroutine(spawnTrail(trail, bulletSpawnPoint.position + transform.forward * 100, Vector3.zero, false));
         }
+
+        recoilScript.recoilFire();
     }
 
     private IEnumerator spawnTrail(TrailRenderer trail, Vector3 hit, Vector3 hitNormal, bool madeImpact)

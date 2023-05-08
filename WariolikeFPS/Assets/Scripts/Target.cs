@@ -12,12 +12,17 @@ public class Target : MonoBehaviour
         health -= amount;
         if(health <= 0f)
         {
-            die();
+            
         }
     }
 
     public void die()
     {
         Destroy(gameObject);
+    }
+
+    public void stagger()
+    {
+
     }
 }
