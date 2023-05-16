@@ -43,13 +43,7 @@ public class Shotgun : MonoBehaviour
                 target.takeDamage(damage);
             }
         }
-        for(int i = 0; i < 9; i++)
-        {
-            float xSpread = Random.Range(-bulletSpreadValue, bulletSpreadValue);
-            float ySpread = Random.Range(-bulletSpreadValue, bulletSpreadValue);
-            Vector3 randomSpread = direction + playerCamera.transform.direction(new Vector3(xSpread, ySpread));
-            if(Physics.Raycast)
-        }
+        
         else
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
