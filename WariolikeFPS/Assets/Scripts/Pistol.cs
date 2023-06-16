@@ -9,6 +9,7 @@ public class Pistol : MonoBehaviour
     public float delay;
     public float range;
     public float firerate;
+    public float maxAmmo;
 
     public float bulletSpeed = 100;
     public Transform bulletSpawnPoint;
@@ -19,6 +20,10 @@ public class Pistol : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     public Recoil recoilScript;
+    int attackCount;
+
+    [Header("Animations")]
+    public const string IDLE = "Idle";
 
     void Start()
     {

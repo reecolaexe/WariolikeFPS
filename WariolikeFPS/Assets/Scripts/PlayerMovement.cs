@@ -10,12 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public float gravityStrength;
 
-    [Header("Charging")]
-    public float chargeSpeed;
-    public float chargeDuration;
-    public bool cameraLocked;
+    public CharacterController cc;
 
-    private CharacterController cc;
     private Vector3 currentMoveVelocity;
     private Vector3 moveDampVelocity;
     private Vector3 currentForceVelocity;
@@ -23,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
-        cameraLocked = false;
     }
 
     void Update()
@@ -62,10 +57,5 @@ public class PlayerMovement : MonoBehaviour
             currentForceVelocity.y -= gravityStrength * Time.deltaTime;
         }
         cc.Move(currentForceVelocity * Time.deltaTime);
-    }
-
-    void charging() 
-    {
-        //Add force to transform.forward to apply constant speed.
     }
 }

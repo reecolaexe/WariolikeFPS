@@ -11,8 +11,21 @@ public class Fists : MonoBehaviour
     public float firerate;
 
     public Camera playerCamera;
+    public Animator animator;
 
     private float nextTimeToFire = 0f;
+
+    public const string IDLE = "Idle";
+    public const string EQUIP = "Equip";
+    public const string ACTION = "Action"
+    public const string PUNCH = "Punch";
+    public const string PUNCHIMPACT = "PunchImpact";
+    string currentAnimationState;
+
+    void Start()
+    {
+        changeAnimationState("");
+    }
 
     void Update()
     {
@@ -34,5 +47,12 @@ public class Fists : MonoBehaviour
                 target.takeDamage(damage);
             }
         }
+    }
+
+    void changeAnimationState(string newState)
+    {
+        if (currentAnimationState == newState) return;
+        currentAnimationState = newState;
+        animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
     }
 }
