@@ -22,9 +22,6 @@ public class Pistol : MonoBehaviour
     public Recoil recoilScript;
     int attackCount;
 
-    [Header("Animations")]
-    public const string IDLE = "Idle";
-
     void Start()
     {
         recoilScript = GameObject.Find("CameraRot/CameraRecoil").GetComponent<Recoil>();

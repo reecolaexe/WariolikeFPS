@@ -17,6 +17,14 @@ public class Shotgun : MonoBehaviour
     public TrailRenderer bulletTrail;
 
     private float nextTimeToFire = 0f;
+    private float bulletsPerShot = 6;
+    private float spread = 5f;
+
+
+    void awake()
+    {
+
+    }
 
     void Update()
     {
@@ -30,26 +38,28 @@ public class Shotgun : MonoBehaviour
     void shoot()
     {
         RaycastHit hit;
-        Vector3 direction = transform.forward;
 
-        if (Physics.Raycast(bulletSpawnPoint.position, direction, out hit, range))
+        for(int i = 0; i < bulletsPerShot; i++)
         {
-            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
-            StartCoroutine(spawnTrail(trail, hit.point, hit.normal, true));
-
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            if (Physics.Raycast(bulletSpawnPoint.position, shotgunSpread, out hit, range))
             {
-                target.takeDamage(damage);
-            }
-        }
-        
-        else
-        {
-            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+                StartCoroutine(spawnTrail(trail, hit.point, hit.normal, true));
 
-            StartCoroutine(spawnTrail(trail, bulletSpawnPoint.position + transform.forward * 100, Vector3.zero, false));
-        }
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    target.takeDamage(damage);
+                }
+            }
+
+            else
+            {
+                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+
+                StartCoroutine(spawnTrail(trail, bulletSpawnPoint.position + transform.forward * 100, Vector3.zero, false));
+            }
+        } 
     }
 
     private IEnumerator spawnTrail(TrailRenderer trail, Vector3 hit, Vector3 hitNormal, bool madeImpact)
@@ -66,5 +76,13 @@ public class Shotgun : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    Vector3 shotgunSpread()
+    {
+        Vector3 targetPostion = playerCamera.transform.position + playerCamera.transform.forward * range;
+        targetPostion = new Vector3(targetPostion.x + Random.Range(-spread, spread), targetPostion.y + Random.Range(-spread, spread), targetPostion.z + Random.Range(-spread, spread));
+        Vector3 direction = targetPostion - playerCamera.transform.position;
+        return direction.normalized;
     }
 }

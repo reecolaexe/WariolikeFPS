@@ -15,18 +15,6 @@ public class Fists : MonoBehaviour
 
     private float nextTimeToFire = 0f;
 
-    public const string IDLE = "Idle";
-    public const string EQUIP = "Equip";
-    public const string ACTION = "Action"
-    public const string PUNCH = "Punch";
-    public const string PUNCHIMPACT = "PunchImpact";
-    string currentAnimationState;
-
-    void Start()
-    {
-        changeAnimationState("");
-    }
-
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
@@ -41,18 +29,11 @@ public class Fists : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
         {
-            Target target = hit.transform.GetComponent<Target>();
+            Target target = hit.transform.GetComponent<Target>();  
             if (target != null)
             {
                 target.takeDamage(damage);
             }
         }
-    }
-
-    void changeAnimationState(string newState)
-    {
-        if (currentAnimationState == newState) return;
-        currentAnimationState = newState;
-        animator.CrossFadeInFixedTime(currentAnimationState, 0.2f);
     }
 }
