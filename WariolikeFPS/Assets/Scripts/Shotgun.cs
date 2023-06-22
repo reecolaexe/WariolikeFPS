@@ -41,7 +41,7 @@ public class Shotgun : MonoBehaviour
 
         for(int i = 0; i < bulletsPerShot; i++)
         {
-            if (Physics.Raycast(bulletSpawnPoint.position, shotgunSpread, out hit, range))
+            if (Physics.Raycast(bulletSpawnPoint.position, shotgunSpread(), out hit, range))
             {
                 TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(spawnTrail(trail, hit.point, hit.normal, true));
@@ -52,14 +52,13 @@ public class Shotgun : MonoBehaviour
                     target.takeDamage(damage);
                 }
             }
-
             else
             {
-                TrailRenderer trail = Instantiate(bulletTrail, bulletSpawnPoint.position, Quaternion.identity);
+                TrailRenderer trail = Instantiate(bulletTrail, shotgunSpread(), Quaternion.identity);
 
                 StartCoroutine(spawnTrail(trail, bulletSpawnPoint.position + transform.forward * 100, Vector3.zero, false));
             }
-        } 
+        }
     }
 
     private IEnumerator spawnTrail(TrailRenderer trail, Vector3 hit, Vector3 hitNormal, bool madeImpact)
