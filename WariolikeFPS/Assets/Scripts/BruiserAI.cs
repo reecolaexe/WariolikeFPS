@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvilWizardAI : MonoBehaviour
+public class BruiserAI : MonoBehaviour
 {
     [Header("Variables")]
     public UnityEngine.AI.NavMeshAgent agent;
-    public Animator anim;
     public Transform player;
     public LayerMask whatIsGround;
     public LayerMask whatIsPlayer;
@@ -15,10 +14,10 @@ public class EvilWizardAI : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
-    public Transform projectileSpawnPoint;
+    private bool isCharging;
+    public float chargeSpeed;
+    public float chargeDuration;
+    public float chargeCooldown;
 
     public float sightRange;
     public float attackRange;
@@ -29,7 +28,6 @@ public class EvilWizardAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        anim.Play("Idle");
     }
 
     private void Update()
@@ -37,26 +35,25 @@ public class EvilWizardAI : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) patrolling();
-        if (playerInSightRange && !playerInAttackRange) chasePlayer();
-        if (playerInSightRange && playerInAttackRange) attackPlayer();
+        if (!playerInSightRange && !playerInAttackRange && !isCharging) patrolling();
+        if (playerInSightRange && !playerInAttackRange && !isCharging) chasePlayer();
+        if (playerInSightRange && playerInAttackRange && !isCharging) StartCoroutine(chargeAttack());
     }
 
     private void patrolling()
     {
-        if(!walkPointSet) searchWalkPoint();
+        if (!walkPointSet) searchWalkPoint();
 
-        if(walkPointSet)
+        if (walkPointSet)
         {
             agent.SetDestination(walkPoint);
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if(distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
         }
-        anim.Play("Waddle");
     }
 
     private void searchWalkPoint()
@@ -64,7 +61,7 @@ public class EvilWizardAI : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
         }
@@ -73,26 +70,25 @@ public class EvilWizardAI : MonoBehaviour
     private void chasePlayer()
     {
         agent.SetDestination(player.position);
-        anim.Play("Waddle");
     }
 
-    private void attackPlayer()
+    private IEnumerator chargeAttack()
     {
-        agent.SetDestination(transform.position);
+        isCharging = true;
+        agent.isStopped = true;
         transform.LookAt(player);
-        
-        if(!alreadyAttacked)
-        {
-            anim.Play("Shoot");
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            alreadyAttacked = true;
-            Invoke(nameof(resetAttack), timeBetweenAttacks);
-        }
-    }
+        yield return new WaitForSeconds(chargeCooldown);
+        float timer = 0f;
 
-    private void resetAttack()
-    {
-        alreadyAttacked = false;
+        while (timer < chargeDuration)
+        {
+            Vector3 direction = player.position - transform.position;
+            agent.Move(direction.normalized * chargeSpeed * Time.deltaTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        isCharging = false;
+        agent.isStopped = false;
     }
 }

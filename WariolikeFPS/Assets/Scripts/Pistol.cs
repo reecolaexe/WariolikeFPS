@@ -20,7 +20,7 @@ public class Pistol : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     public Recoil recoilScript;
-    int attackCount;
+    public Animator anim;
 
     void Start()
     {
@@ -33,6 +33,11 @@ public class Pistol : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / firerate;
             Invoke(nameof(shoot), delay);
+            //anim.Play("Shoot");
+        }
+        else
+        {
+            //anim.Play("Idle");
         }
     }
 

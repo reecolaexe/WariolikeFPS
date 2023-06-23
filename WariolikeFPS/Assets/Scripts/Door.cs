@@ -5,7 +5,6 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public Animator doorAnim;
-
     public bool requiresKey;
     public bool reqBlue, reqRed, reqYellow;
     

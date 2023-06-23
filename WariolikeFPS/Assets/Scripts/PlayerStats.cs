@@ -14,6 +14,8 @@ public class PlayerStats : MonoBehaviour
     public int maxShotgunAmmo;
     public int currentShotgunAmmo;
 
+    public bool isDead;
+
     void start()
     {
         currentArmor = maxArmor;
@@ -44,7 +46,7 @@ public class PlayerStats : MonoBehaviour
         
         if(currentHealth <= 0)
         {
-            //Add death code here
+            isDead = true;
         }
     }
 
