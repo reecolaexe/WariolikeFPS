@@ -1,0 +1,505 @@
+fileFormatVersion: 2
+guid: 5b4155d53a4ab8c44884d75778b1884b
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 5640910603174762884
+    second: Empty|Cube.004|Idle
+  - first:
+      74: 7651367425428591448
+    second: Empty|Cube.004|Reload
+  - first:
+      74: -3003433879262052153
+    second: Empty|Cube.004|Shoot
+  - first:
+      74: -1876496135984119016
+    second: Empty|Cube.004|TakeOut
+  - first:
+      74: 7106291766655802934
+    second: Empty|Cube.005|Idle
+  - first:
+      74: -123689085707325237
+    second: Empty|Cube.005|Reload
+  - first:
+      74: -8668631035048773319
+    second: Empty|Cube.005|Shoot
+  - first:
+      74: -6798946899520277706
+    second: Empty|Cube.005|TakeOut
+  - first:
+      74: 7709339702420989350
+    second: Empty|Cube.006|Idle
+  - first:
+      74: -1122571094455169342
+    second: Empty|Cube.006|Reload
+  - first:
+      74: -6791991559046790656
+    second: Empty|Cube.006|Shoot
+  - first:
+      74: -7521473059139535424
+    second: Empty|Cube.006|TakeOut
+  - first:
+      74: -7616233632982376059
+    second: Empty|Cube.008|Idle
+  - first:
+      74: 4526010759138395387
+    second: Empty|Cube.008|Reload
+  - first:
+      74: -3858654890258068805
+    second: Empty|Cube.008|Shoot
+  - first:
+      74: -8147768836491115939
+    second: Empty|Cube.008|TakeOut
+  - first:
+      74: -4122127092643361221
+    second: Empty|Cube.009|Idle
+  - first:
+      74: -5981066575226750124
+    second: Empty|Cube.009|Reload
+  - first:
+      74: 8377421012162591467
+    second: Empty|Cube.009|Shoot
+  - first:
+      74: -2538815453386724330
+    second: Empty|Cube.009|TakeOut
+  - first:
+      74: -6721929959080258527
+    second: Empty|Cube|Idle
+  - first:
+      74: 7554925920123234211
+    second: Empty|Cube|Reload
+  - first:
+      74: -6909652002939079725
+    second: Empty|Cube|Shoot
+  - first:
+      74: -8338947377009132476
+    second: Empty|Cube|TakeOut
+  - first:
+      74: -2569996955273791671
+    second: Empty|Cylinder.001|Idle
+  - first:
+      74: -9150182448652964281
+    second: Empty|Cylinder.001|Reload
+  - first:
+      74: -4759901830885793376
+    second: Empty|Cylinder.001|Shoot
+  - first:
+      74: 3554294167024027288
+    second: Empty|Cylinder.001|TakeOut
+  - first:
+      74: -546541329473223474
+    second: Empty|Cylinder.002|Idle
+  - first:
+      74: -9080917702983223322
+    second: Empty|Cylinder.002|Reload
+  - first:
+      74: -7354321666487197063
+    second: Empty|Cylinder.002|Shoot
+  - first:
+      74: -3036154042304031103
+    second: Empty|Cylinder.002|TakeOut
+  - first:
+      74: 495739168612887176
+    second: Empty|Cylinder.003|Idle
+  - first:
+      74: 6498876452414736037
+    second: Empty|Cylinder.003|Reload
+  - first:
+      74: 6224262073268713602
+    second: Empty|Cylinder.003|Shoot
+  - first:
+      74: -3557330833309404026
+    second: Empty|Cylinder.003|TakeOut
+  - first:
+      74: 1128334535211648306
+    second: Empty|Cylinder|Idle
+  - first:
+      74: -6271299806172589385
+    second: Empty|Cylinder|Reload
+  - first:
+      74: -7881773151949202535
+    second: Empty|Cylinder|Shoot
+  - first:
+      74: 5547868388989433797
+    second: Empty|Cylinder|TakeOut
+  - first:
+      74: -6024027266617835399
+    second: Empty|Empty|Idle
+  - first:
+      74: 1692769567544442781
+    second: Empty|Empty|Reload
+  - first:
+      74: -682231703689820207
+    second: Empty|Empty|Shoot
+  - first:
+      74: -7317691074491597014
+    second: Empty|Empty|TakeOut
+  - first:
+      74: -6891884736722180203
+    second: Player Rig|Cube.004|Idle
+  - first:
+      74: -4422915616078350236
+    second: Player Rig|Cube.004|Reload
+  - first:
+      74: 3683894133633197603
+    second: Player Rig|Cube.004|Shoot
+  - first:
+      74: 3170333174408650857
+    second: Player Rig|Cube.004|TakeOut
+  - first:
+      74: 3266687711007743581
+    second: Player Rig|Cube.005|Idle
+  - first:
+      74: -6537500095394781829
+    second: Player Rig|Cube.005|Reload
+  - first:
+      74: -5744698156107488733
+    second: Player Rig|Cube.005|Shoot
+  - first:
+      74: 4407386984542379071
+    second: Player Rig|Cube.005|TakeOut
+  - first:
+      74: 246325118307989149
+    second: Player Rig|Cube.006|Idle
+  - first:
+      74: -4594548872606287675
+    second: Player Rig|Cube.006|Reload
+  - first:
+      74: 8663942977009487516
+    second: Player Rig|Cube.006|Shoot
+  - first:
+      74: -6520121109576677497
+    second: Player Rig|Cube.006|TakeOut
+  - first:
+      74: -4630806103646728085
+    second: Player Rig|Cube.008|Idle
+  - first:
+      74: -1539645443339495410
+    second: Player Rig|Cube.008|Reload
+  - first:
+      74: -2728578419889600793
+    second: Player Rig|Cube.008|Shoot
+  - first:
+      74: 1702359325267724734
+    second: Player Rig|Cube.008|TakeOut
+  - first:
+      74: 1943976981030822308
+    second: Player Rig|Cube.009|Idle
+  - first:
+      74: 8073887719368597719
+    second: Player Rig|Cube.009|Reload
+  - first:
+      74: -1386773502088786295
+    second: Player Rig|Cube.009|Shoot
+  - first:
+      74: -8021385935858991497
+    second: Player Rig|Cube.009|TakeOut
+  - first:
+      74: -997638863610486828
+    second: Player Rig|Cube|Idle
+  - first:
+      74: 1672738566523288267
+    second: Player Rig|Cube|Reload
+  - first:
+      74: 7393869715125582039
+    second: Player Rig|Cube|Shoot
+  - first:
+      74: -7419882467385113263
+    second: Player Rig|Cube|TakeOut
+  - first:
+      74: 309127310454084700
+    second: Player Rig|Cylinder.001|Idle
+  - first:
+      74: -2086188941857300310
+    second: Player Rig|Cylinder.001|Reload
+  - first:
+      74: 3980736292195006526
+    second: Player Rig|Cylinder.001|Shoot
+  - first:
+      74: -4856373209569695112
+    second: Player Rig|Cylinder.001|TakeOut
+  - first:
+      74: -4848099045269215332
+    second: Player Rig|Cylinder.002|Idle
+  - first:
+      74: -8428892270488001436
+    second: Player Rig|Cylinder.002|Reload
+  - first:
+      74: 5382145836181223521
+    second: Player Rig|Cylinder.002|Shoot
+  - first:
+      74: -346985641746342832
+    second: Player Rig|Cylinder.002|TakeOut
+  - first:
+      74: 8938991809768347859
+    second: Player Rig|Cylinder.003|Idle
+  - first:
+      74: 7938769427205721335
+    second: Player Rig|Cylinder.003|Reload
+  - first:
+      74: 5988899528286652219
+    second: Player Rig|Cylinder.003|Shoot
+  - first:
+      74: -7833512746539137849
+    second: Player Rig|Cylinder.003|TakeOut
+  - first:
+      74: -8813006345387884790
+    second: Player Rig|Cylinder|Idle
+  - first:
+      74: -7095315899921398736
+    second: Player Rig|Cylinder|Reload
+  - first:
+      74: -5245968310232111679
+    second: Player Rig|Cylinder|Shoot
+  - first:
+      74: 3003752514931565548
+    second: Player Rig|Cylinder|TakeOut
+  - first:
+      74: -8169330387628243837
+    second: Player Rig|Empty|Idle
+  - first:
+      74: 152007659201080461
+    second: Player Rig|Empty|Reload
+  - first:
+      74: 400313301619756882
+    second: Player Rig|Empty|Shoot
+  - first:
+      74: -6615734627766580813
+    second: Player Rig|Empty|TakeOut
+  - first:
+      74: 7815499741675935747
+    second: Player Rig|Player Rig|TakeOut
+  - first:
+      74: -6515889767153947828
+    second: Cylinder|Cube.004|Idle
+  - first:
+      74: -8203572207009332209
+    second: Cylinder|Cube.004|Reload
+  - first:
+      74: 8481294939554097218
+    second: Cylinder|Cube.004|Shoot
+  - first:
+      74: 6109726151166909758
+    second: Cylinder|Cube.004|TakeOut
+  - first:
+      74: -5107696199602274427
+    second: Cylinder|Cube.005|Idle
+  - first:
+      74: -7624934118592861024
+    second: Cylinder|Cube.005|Reload
+  - first:
+      74: -7773645985937621213
+    second: Cylinder|Cube.005|Shoot
+  - first:
+      74: 5685512098889791696
+    second: Cylinder|Cube.005|TakeOut
+  - first:
+      74: -4489131575131143788
+    second: Cylinder|Cube.006|Idle
+  - first:
+      74: -8276445995890820732
+    second: Cylinder|Cube.006|Reload
+  - first:
+      74: 562322494053734714
+    second: Cylinder|Cube.006|Shoot
+  - first:
+      74: 7804557520239019290
+    second: Cylinder|Cube.006|TakeOut
+  - first:
+      74: 6499998331702549584
+    second: Cylinder|Cube.008|Idle
+  - first:
+      74: 7666912207337585772
+    second: Cylinder|Cube.008|Reload
+  - first:
+      74: -3024823399128102727
+    second: Cylinder|Cube.008|Shoot
+  - first:
+      74: -8313711237216523551
+    second: Cylinder|Cube.008|TakeOut
+  - first:
+      74: 8765892413591196689
+    second: Cylinder|Cube.009|Idle
+  - first:
+      74: 5387310658072314153
+    second: Cylinder|Cube.009|Reload
+  - first:
+      74: -2729948561885614633
+    second: Cylinder|Cube.009|Shoot
+  - first:
+      74: 4496680436753060458
+    second: Cylinder|Cube.009|TakeOut
+  - first:
+      74: 5748756470140195964
+    second: Cylinder|Cube|Idle
+  - first:
+      74: -2174318591921507671
+    second: Cylinder|Cube|Reload
+  - first:
+      74: -3327490955399430658
+    second: Cylinder|Cube|Shoot
+  - first:
+      74: -6910408627518069304
+    second: Cylinder|Cube|TakeOut
+  - first:
+      74: -5003814050092186605
+    second: Cylinder|Cylinder.001|Idle
+  - first:
+      74: -2402261268490681499
+    second: Cylinder|Cylinder.001|Reload
+  - first:
+      74: -1875386831767782240
+    second: Cylinder|Cylinder.001|Shoot
+  - first:
+      74: -4696732392984469680
+    second: Cylinder|Cylinder.001|TakeOut
+  - first:
+      74: -9121483577728328132
+    second: Cylinder|Cylinder.002|Idle
+  - first:
+      74: 3189228133526897840
+    second: Cylinder|Cylinder.002|Reload
+  - first:
+      74: 8261736240300046631
+    second: Cylinder|Cylinder.002|Shoot
+  - first:
+      74: 7035782473099814854
+    second: Cylinder|Cylinder.002|TakeOut
+  - first:
+      74: -3455792241939082236
+    second: Cylinder|Cylinder.003|Idle
+  - first:
+      74: -4620563643625836921
+    second: Cylinder|Cylinder.003|Reload
+  - first:
+      74: 6050155441843548056
+    second: Cylinder|Cylinder.003|Shoot
+  - first:
+      74: -8427344132275217202
+    second: Cylinder|Cylinder.003|TakeOut
+  - first:
+      74: 8158160060502267029
+    second: Cylinder|Cylinder|Idle
+  - first:
+      74: -2588716213287747426
+    second: Cylinder|Cylinder|Reload
+  - first:
+      74: 6897242444753585056
+    second: Cylinder|Cylinder|Shoot
+  - first:
+      74: -6622726114768433350
+    second: Cylinder|Cylinder|TakeOut
+  - first:
+      74: -2810005190510021651
+    second: Cylinder|Empty|Idle
+  - first:
+      74: -2180539540970993591
+    second: Cylinder|Empty|Reload
+  - first:
+      74: 4235863431585250508
+    second: Cylinder|Empty|Shoot
+  - first:
+      74: 4547902029070608202
+    second: Cylinder|Empty|TakeOut
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

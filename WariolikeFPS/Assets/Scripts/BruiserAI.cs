@@ -24,6 +24,8 @@ public class BruiserAI : MonoBehaviour
     public bool playerInSightRange;
     public bool playerInAttackRange;
 
+    public Animator anim;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -42,6 +44,7 @@ public class BruiserAI : MonoBehaviour
 
     private void patrolling()
     {
+        anim.Play("Idle");
         if (!walkPointSet) searchWalkPoint();
 
         if (walkPointSet)
@@ -49,7 +52,7 @@ public class BruiserAI : MonoBehaviour
             agent.SetDestination(walkPoint);
         }
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        Vector3 distanceToWalkPoint = transform.position = walkPoint;
         if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
@@ -70,10 +73,12 @@ public class BruiserAI : MonoBehaviour
     private void chasePlayer()
     {
         agent.SetDestination(player.position);
+        anim.Play("Scream");
     }
 
     private IEnumerator chargeAttack()
     {
+        anim.Play("Sprint");
         isCharging = true;
         agent.isStopped = true;
         transform.LookAt(player);

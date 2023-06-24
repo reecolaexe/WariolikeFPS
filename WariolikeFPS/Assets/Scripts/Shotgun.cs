@@ -20,10 +20,12 @@ public class Shotgun : MonoBehaviour
     private float bulletsPerShot = 6;
     private float spread = 5f;
 
+    public Recoil recoilScript;
+    public Animator anim;
 
-    void awake()
+    void Start()
     {
-
+        recoilScript = GameObject.Find("CameraRot/CameraRecoil").GetComponent<Recoil>();
     }
 
     void Update()
@@ -59,6 +61,9 @@ public class Shotgun : MonoBehaviour
                 StartCoroutine(spawnTrail(trail, bulletSpawnPoint.position + transform.forward * 100, Vector3.zero, false));
             }
         }
+
+        recoilScript.recoilFire();
+        anim.SetTrigger("Shooting");
     }
 
     private IEnumerator spawnTrail(TrailRenderer trail, Vector3 hit, Vector3 hitNormal, bool madeImpact)

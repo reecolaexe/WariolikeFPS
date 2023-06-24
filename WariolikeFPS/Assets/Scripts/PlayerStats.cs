@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     [Header("Variables")]
     public int maxHealth;
     public int currentHealth;
-    public int maxArmor;
-    public int currentArmor;
     public int maxPistolAmmo;
     public int currentPistolAmmo;
     public int maxShotgunAmmo;
@@ -16,37 +15,33 @@ public class PlayerStats : MonoBehaviour
 
     public bool isDead;
 
+    PlayerUI playerUI;
+
+
     void start()
     {
-        currentArmor = maxArmor;
         currentHealth = maxHealth;
         currentPistolAmmo = maxPistolAmmo;
         currentShotgunAmmo = maxShotgunAmmo;
+        playerUI = GetComponent<PlayerUI>();
+        setStats();
+    }
+
+    void setStats()
+    {
+        playerUI.healthAmount.text = currentHealth.ToString();
+        playerUI.pAmmoAmount.text = currentPistolAmmo.ToString();
+        playerUI.sAmmoAmount.text = currentShotgunAmmo.ToString();
     }
 
     public void damagePlayer(int damage)
     {
-        if(currentArmor > 0)
-        {
-            if(currentArmor >= damage)
-            {
-                currentArmor -= damage;
-            }
-            else if(currentArmor <= damage)
-            {
-                int remainingDamage;
-                remainingDamage = damage - currentArmor;
-                currentArmor = 0;
-            }
-        }
-        else
-        {
-            currentHealth -= damage;
-        }
-        
+        currentHealth -= damage;
+
         if(currentHealth <= 0)
         {
             isDead = true;
+            SceneManager.LoadScene("realmap");
         }
     }
 
@@ -56,15 +51,6 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
-        }
-    }
-
-    public void giveArmor(int amount)
-    {
-        currentArmor += amount;
-        if (currentArmor > maxArmor)
-        {
-            currentArmor = maxArmor;
         }
     }
 

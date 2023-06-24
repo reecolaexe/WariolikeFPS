@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public bool isHealth;
-    public bool isArmor;
     public bool isPistolAmmo;
     public bool isShotgunAmmo;
 
@@ -18,11 +17,6 @@ public class ItemPickup : MonoBehaviour
             if(isHealth)
             {
                 other.GetComponent<PlayerStats>().giveHealth(amount);
-            }
-
-            if (isArmor)
-            {
-                other.GetComponent<PlayerStats>().giveArmor(amount);
             }
 
             if (isPistolAmmo)

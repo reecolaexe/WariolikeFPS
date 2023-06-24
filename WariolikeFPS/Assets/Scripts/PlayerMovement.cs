@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
             playerInput.Normalize();
         }
 
-        public Vector3 moveVector = transform.TransformDirection(playerInput);
+        Vector3 moveVector = transform.TransformDirection(playerInput);
         currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, moveVector * moveSpeed, ref moveDampVelocity, moveSmoothTime);
         cc.Move(currentMoveVelocity * Time.deltaTime);
     }
@@ -58,5 +58,4 @@ public class PlayerMovement : MonoBehaviour
         }
         cc.Move(currentForceVelocity * Time.deltaTime);
     }
-}
 }

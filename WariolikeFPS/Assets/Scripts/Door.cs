@@ -8,21 +8,21 @@ public class Door : MonoBehaviour
 
     public bool requiresKey;
     public bool reqBlue, reqRed, reqYellow;
+    public bool isDoorOpen;
+
+    void Update()
+    {
+        if(isDoorOpen)
+        {
+            doorAnim.SetTrigger("OpenDoor");
+        }
+    }
     
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            if(requiresKey)
-            {
-                {
-                    doorAnim.SetTrigger("OpenDoor");
-                }
-            }
-            else
-            {
-                doorAnim.SetTrigger("OpenDoor");
-            }
+            isDoorOpen = true;
         }
     }
 }
