@@ -11,7 +11,7 @@ public class Fists : MonoBehaviour
     public float firerate;
 
     public Camera playerCamera;
-    public Animator animator;
+    public Animator anim;
 
     private float nextTimeToFire = 0f;
 
@@ -35,5 +35,6 @@ public class Fists : MonoBehaviour
                 target.takeDamage(damage);
             }
         }
+        anim.SetTrigger("Attacking");
     }
 }

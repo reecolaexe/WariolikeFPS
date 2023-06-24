@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public Animator doorAnim;
+
     public bool requiresKey;
     public bool reqBlue, reqRed, reqYellow;
     
@@ -14,15 +15,6 @@ public class Door : MonoBehaviour
         {
             if(requiresKey)
             {
-                if(reqBlue && other.GetComponent<PlayerInventory>().hasBlue)
-                {
-                    doorAnim.SetTrigger("OpenDoor");
-                }
-                if (reqRed && other.GetComponent<PlayerInventory>().hasRed)
-                {
-                    doorAnim.SetTrigger("OpenDoor");
-                }
-                if (reqYellow && other.GetComponent<PlayerInventory>().hasYellow)
                 {
                     doorAnim.SetTrigger("OpenDoor");
                 }

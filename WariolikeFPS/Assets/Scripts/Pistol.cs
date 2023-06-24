@@ -33,11 +33,6 @@ public class Pistol : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / firerate;
             Invoke(nameof(shoot), delay);
-            //anim.Play("Shoot");
-        }
-        else
-        {
-            //anim.Play("Idle");
         }
     }
 
@@ -64,6 +59,7 @@ public class Pistol : MonoBehaviour
         }
 
         recoilScript.recoilFire();
+        anim.SetTrigger("Shooting");
     }
 
     private IEnumerator spawnTrail(TrailRenderer trail, Vector3 hit, Vector3 hitNormal, bool madeImpact)
